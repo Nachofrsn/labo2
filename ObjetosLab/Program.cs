@@ -11,7 +11,6 @@ namespace ObjetosLab
     {
         static void Main(string[] args)
         {
-
             Console.ReadKey();
         }
     }

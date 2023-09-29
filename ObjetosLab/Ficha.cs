@@ -7,12 +7,13 @@ using System.IO;
 
 namespace ObjetosLab
 {
-    public class Ficha
+    public abstract class Ficha
     {
         private string _color;
         private string _tipo;
         private string _seleccionado;
         private string _movimiento;
+        private List<Ficha> _listaFicha;
 
         public Ficha()
         {
@@ -20,6 +21,7 @@ namespace ObjetosLab
             this.Tipo = "";
             this.Seleccionado = "";
             this.Movimiento = "";
+            this._listaFicha = new List<Ficha>();
         }
         public Ficha(string color, string tipo, string seleccionado, string movimiento)
         {
@@ -27,6 +29,7 @@ namespace ObjetosLab
             this.Tipo = tipo;
             this.Seleccionado = seleccionado;
             this.Movimiento = movimiento;
+            this._listaFicha = new List<Ficha>();
         }
         public string Color
         {
