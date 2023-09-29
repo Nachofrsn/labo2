@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace ObjetosLab
 {
-    internal class Peon
+    public class Peon : Ficha
     {
+        public Peon(string color, string tipo, string seleccionado, string movimiento) : base(color, tipo, seleccionado, movimiento)
+        {
+
+        }
     }
 }
