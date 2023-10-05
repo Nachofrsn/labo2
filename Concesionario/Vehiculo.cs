@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Concesionario
 {
-    public class Vehiculos
+    public class Vehiculo
     {
         private string _patente;
         private string _anio;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Concesionario
 {
-    public class Servicios
+    public class Servicio
     {
         private string _titulo;
         private string _detalles;

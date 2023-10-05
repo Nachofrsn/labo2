@@ -1,0 +1,8 @@
+C:\Users\corde\Desktop\Facu\labo2\Concesionario\obj\Debug\Concesionario.csproj.AssemblyReference.cache
+C:\Users\corde\Desktop\Facu\labo2\Concesionario\obj\Debug\Concesionario.csproj.SuggestedBindingRedirects.cache
+C:\Users\corde\Desktop\Facu\labo2\Concesionario\obj\Debug\Concesionario.csproj.CoreCompileInputs.cache
+C:\Users\corde\Desktop\Facu\labo2\Concesionario\bin\Debug\Concesionario.exe.config
+C:\Users\corde\Desktop\Facu\labo2\Concesionario\bin\Debug\Concesionario.exe
+C:\Users\corde\Desktop\Facu\labo2\Concesionario\bin\Debug\Concesionario.pdb
+C:\Users\corde\Desktop\Facu\labo2\Concesionario\obj\Debug\Concesionario.exe
+C:\Users\corde\Desktop\Facu\labo2\Concesionario\obj\Debug\Concesionario.pdb

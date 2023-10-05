@@ -9,7 +9,7 @@ namespace Concesionario
     public class Posventa
     {
         private DateTime _fecha;
-        private List <Servicios> _servicios;
+        private List <Servicio> _servicios;
         private string _observaciones;
         private Venta _ventas;
     }

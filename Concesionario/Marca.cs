@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Concesionario
 {
-    internal class Marca
+    public abstract class Marca
     {
+        private string _nombreMarca;
+        public string NombreMarca
+        {
+            get { return _nombreMarca; }
+            set { _nombreMarca = value; }
+        }
     }
 }
