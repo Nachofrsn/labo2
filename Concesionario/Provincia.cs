@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace Concesionario
 {
-    public abstract class Provincia
+    public class Provincia
     {
         private string _provincia;
         private List<Ciudad> _listaCiudad;
 
+        public Provincia()
+        {
+            Provincias = "";
+            _listaCiudad = new List<Ciudad>();
+        }
         public string Provincias
         {
             get { return _provincia; }

@@ -61,7 +61,7 @@ namespace Concesionario
 
         public void MostrarCliente()
         {
-            Console.WriteLine($"Provincia: {Ciudad.Provincias}, ciudad: {Ciudad.Ciudades}, cuit: {Cuit}, apellido: {Apellido}, nombre: {Nombre}, direccion: {Direccion}, telefono: {Telefono}");
+            Console.WriteLine($"Provincia: {Ciudad.Provincia.Provincias}\nciudad: {Ciudad.Ciudades}\ncuit: {Cuit}\napellido: {Apellido}\nnombre: {Nombre}\ndireccion: {Direccion}\ntelefono: {Telefono}");
         }
     }
 }

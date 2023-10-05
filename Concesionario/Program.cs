@@ -10,8 +10,14 @@ namespace Concesionario
     {
         static void Main(string[] args)
         {
-            Ciudad SanNicolas = new Ciudad("San Nicolas", "Buenos Aires");
+            Provincia BuenosAires = new Provincia();
+            BuenosAires.Provincias = "Buenos Aires";
+            Ciudad SanNicolas = new Ciudad("San Nicolas");
             Cliente A = new Cliente("20.43564782.5","Cordero","Ignacio","Italia 500",4456032,SanNicolas);
+            List<Ciudad> cities = new List<Ciudad>();
+            cities.Add(SanNicolas);
+
+
             A.MostrarCliente();
             Console.ReadKey();
         }
