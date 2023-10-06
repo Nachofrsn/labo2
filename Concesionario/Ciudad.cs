@@ -9,18 +9,18 @@ namespace Concesionario
     class Ciudad : Provincia
     {
         private string _ciudad;
-        //private Provincia _provincia;
-        public Ciudad(string ciudad /*Provincia provincia*/)
+        private Provincia _provincia;
+        public Ciudad(string ciudad, Provincia provincia)
         {
             Ciudades = ciudad;
-        //    Provincia = provincia;
+            Provincia = provincia;
         }
 
-        /*public Provincia Provincia
+        public Provincia Provincia
         {
             get { return _provincia; }
             set { _provincia = value; }
-        }*/
+        }
 
         public string Ciudades
         {
