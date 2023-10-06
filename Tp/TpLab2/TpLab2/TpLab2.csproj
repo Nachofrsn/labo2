@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="Barco.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="ClienteInexistenteException.cs" />
+    <Compile Include="Constantes.cs" />
     <Compile Include="Despacho.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
