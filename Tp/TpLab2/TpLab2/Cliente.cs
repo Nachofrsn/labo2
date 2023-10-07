@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace TpLab2
 {
-    public class Cliente
+    public abstract class Cliente
     {
         private string _nombre;
         private string _codigo;
-
+        private string _mercaderia;
         public Cliente()
         {
             NombreCliente = "";
             CodigoCliente = "";
+            Mercaderia = "";
         }
         public string NombreCliente
         {
@@ -26,6 +27,12 @@ namespace TpLab2
         {
             get { return _codigo; }
             set { _codigo = value; }
+        }
+
+        public string Mercaderia
+        {
+            get { return _mercaderia; }
+            set { _mercaderia = value;}
         }
     }
 }

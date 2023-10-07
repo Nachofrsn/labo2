@@ -52,7 +52,7 @@ namespace TpLab2
                     case 0:
                         Console.Clear();
 
-                        Random rnd = new Random();
+                        Random rnd = new Random(); //PARA EL CODIGO DE DESPACHO
                         Barco A = new Barco(50,10,15,"Beijing","15 / 5 / 23", "7 / 6 / 06");
                         Barco B = new Barco(40, 8, 10, "Tokyo", "15 / 5 / 23", "9 / 6 / 23");
                         Barco C = new Barco(60, 12, 15, "Seoul", "15 / 5 / 23", "8 / 6 /23");
@@ -87,8 +87,8 @@ namespace TpLab2
                         int seleccion = int.Parse(Console.ReadLine());
                         Despacho despacho1 = new Despacho(barcos[seleccion - 1],rnd.Next(9000, 18000));
                         try
-                        {
-                            if (ChequeoUsuario() == true)
+                        {   
+                            if (ChequeoUsuario(ref despacho1) == true)
                             {
                                 Console.WriteLine("Cliente encontrado");
                             }
@@ -97,7 +97,7 @@ namespace TpLab2
                         { 
                             Console.WriteLine(e.Message);
                         }
-
+                        
 
                         OpcionMenuSalir = false;
                         break;
@@ -112,7 +112,7 @@ namespace TpLab2
             Console.ReadKey();
         }
 
-        public static bool ChequeoUsuario()
+        public static bool ChequeoUsuario(ref Despacho despacho1)
         {
             if (File.Exists(Constantes.FileNameCSV))
             {
@@ -129,6 +129,10 @@ namespace TpLab2
 
                     if (lines[0] == cliente)
                     {
+                        despacho1.NombreCliente = lines[0];
+                        despacho1.Mercaderia = lines[1];
+                        lector.Close();
+                        archivo.Close();
                         return true;
                     }
                 }

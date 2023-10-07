@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TpLab2
 {
-    public class Despacho
+    public class Despacho : Cliente
     {
         private Barco _barco;
         private Int32 _numDespacho;
