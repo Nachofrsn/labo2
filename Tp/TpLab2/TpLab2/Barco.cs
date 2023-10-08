@@ -18,6 +18,7 @@ namespace TpLab2
         private string _fechaSalida;
         private string _fechaLlegada;
         private List<Barco> _barcoList;
+        private string _disponibilidad;
         public Barco(int tonBodega, int tonContainer, int cantContainers, string destino, string fechaSalida, string fechaLlegada)
         {
             TonBodega = tonBodega;
@@ -27,6 +28,7 @@ namespace TpLab2
             HorarioSalida = fechaSalida;
             HorarioLlegada = fechaLlegada;
             _barcoList = new List<Barco>();
+            Disponibilidad = "Disponible";
         }
         public int TonBodega
         {
@@ -65,6 +67,12 @@ namespace TpLab2
         public int Tarifa
         {
             get { return 2000; }
+        }
+
+        public string Disponibilidad
+        {
+            get { return _disponibilidad; }
+            set { _disponibilidad = value; }
         }
     }
 }

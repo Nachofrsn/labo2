@@ -14,19 +14,12 @@ namespace TpLab2
         public Cliente()
         {
             NombreCliente = "";
-            CodigoCliente = "";
             Mercaderia = "";
         }
         public string NombreCliente
         {
             get { return _nombre; }
             set { _nombre = value; }
-        }
-
-        public string CodigoCliente
-        {
-            get { return _codigo; }
-            set { _codigo = value; }
         }
 
         public string Mercaderia

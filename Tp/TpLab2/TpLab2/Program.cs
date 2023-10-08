@@ -53,7 +53,7 @@ namespace TpLab2
                         Console.Clear();
 
                         Random rnd = new Random(); //PARA EL CODIGO DE DESPACHO
-                        Barco A = new Barco(50,10,15,"Beijing","15 / 5 / 23", "7 / 6 / 06");
+                        Barco A = new Barco(50, 10, 15, "Beijing", "15 / 5 / 23", "7 / 6 / 06");
                         Barco B = new Barco(40, 8, 10, "Tokyo", "15 / 5 / 23", "9 / 6 / 23");
                         Barco C = new Barco(60, 12, 15, "Seoul", "15 / 5 / 23", "8 / 6 /23");
                         Barco D = new Barco(50, 10, 15, "Amsterdam", "15 / 5 / 23", "9 / 6 /23");
@@ -76,28 +76,33 @@ namespace TpLab2
                         barcos.Add(I);
                         barcos.Add(J);
 
+                        Console.WriteLine("Barcos disponibles:\n");
                         //IMPRIME LOS BARCOS
                         for (int i = 0; i < 10; i++)
                         {
-                            Console.WriteLine($"Barco {i+1}:\nPuerto de origen: {barcos[i].Origen}\nPuerto de destino: {barcos[i].Destino}" +
+                            if (barcos[i].Disponibilidad == "Disponible")
+                            {
+                                Console.WriteLine($"Barco {i + 1}:\nPuerto de origen: {barcos[i].Origen}\nPuerto de destino: {barcos[i].Destino}" +
                                 $"\nFecha de salida: {barcos[i].HorarioSalida}\nHorario de llegada: {barcos[i].HorarioLlegada}\n----------------------");
+                            }
                         }
 
                         Console.WriteLine("\nSeleccione un barco");
                         int seleccion = int.Parse(Console.ReadLine());
-                        Despacho despacho1 = new Despacho(barcos[seleccion - 1],rnd.Next(9000, 18000));
+                        SeleccionBarco(seleccion, ref barcos);
+                        Despacho despacho1 = new Despacho(barcos[seleccion - 1], rnd.Next(9000, 18000));
+
                         try
-                        {   
+                        {
                             if (ChequeoUsuario(ref despacho1) == true)
                             {
                                 Console.WriteLine("Cliente encontrado");
                             }
                         }
                         catch (ClienteInexistenteException e)
-                        { 
+                        {
                             Console.WriteLine(e.Message);
                         }
-                        
 
                         OpcionMenuSalir = false;
                         break;
@@ -116,13 +121,13 @@ namespace TpLab2
         {
             if (File.Exists(Constantes.FileNameCSV))
             {
-                FileStream archivo = new FileStream(Constantes.FileNameCSV,FileMode.Open);
+                FileStream archivo = new FileStream(Constantes.FileNameCSV, FileMode.Open);
                 StreamReader lector = new StreamReader(archivo);
                 Console.WriteLine("Ingrese el nombre de un cliente");
                 string cliente = Console.ReadLine();
 
                 lector.ReadLine();
-                while (lector.EndOfStream == false) 
+                while (lector.EndOfStream == false)
                 {
                     string line = lector.ReadLine();
                     string[] lines = line.Split(',');
@@ -131,16 +136,26 @@ namespace TpLab2
                     {
                         despacho1.NombreCliente = lines[0];
                         despacho1.Mercaderia = lines[1];
+
                         lector.Close();
                         archivo.Close();
                         return true;
                     }
                 }
-            lector.Close(); 
-            archivo.Close();
-            throw new ClienteInexistenteException();
+                lector.Close();
+                archivo.Close();
+                throw new ClienteInexistenteException();
             }
             else return false;
+        }
+
+        public static bool SeleccionBarco(int seleccion, ref List <Barco> barcos)
+        {
+            if (seleccion > 10 || seleccion < 0 || barcos[seleccion - 1].Disponibilidad != "Disponible")
+            {
+                return false;
+            }
+            else return true;
         }
     }
 }

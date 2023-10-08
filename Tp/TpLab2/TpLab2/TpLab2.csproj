@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Barco.cs" />
+    <Compile Include="BarcoInexistenteException.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="ClienteInexistenteException.cs" />
     <Compile Include="Constantes.cs" />
