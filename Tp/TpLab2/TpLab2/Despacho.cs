@@ -11,6 +11,7 @@ namespace TpLab2
     {
         private Barco _barco;
         private Int32 _numDespacho;
+        private Cliente _cliente;
 
         public Despacho(Barco barco, int codigo)
         {
@@ -28,6 +29,12 @@ namespace TpLab2
         {
             get { return _numDespacho;}
             set { _numDespacho = value; }
+        }
+
+        public Cliente Cliente
+        {
+            get { return _cliente; }
+            set { _cliente = value; }
         }
     }
 }
