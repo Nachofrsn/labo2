@@ -7,16 +7,17 @@ using System.Threading.Tasks;
 
 namespace TpLab2
 {
-    public class Despacho : Cliente
+    public class Despacho 
     {
         private Barco _barco;
         private Int32 _numDespacho;
-        private Cliente _cliente;
+        private List <Cliente> _clientes;
 
         public Despacho(Barco barco, int codigo)
         {
             Barco = barco;
             NumeroDespacho = codigo;
+            _clientes = new List <Cliente>();
         }
 
         public Barco Barco
@@ -29,12 +30,6 @@ namespace TpLab2
         {
             get { return _numDespacho;}
             set { _numDespacho = value; }
-        }
-
-        public Cliente Cliente
-        {
-            get { return _cliente; }
-            set { _cliente = value; }
         }
     }
 }

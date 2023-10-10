@@ -56,8 +56,9 @@ namespace TpLab2
 
                         List<Barco> barcos = new List<Barco>();
                         List<Cliente> clientes = new List<Cliente>();
+                        List<Contenedor> contenedores = new List<Contenedor>();
 
-                        CreacionObjetos(ref barcos, ref clientes);
+                        ObjetosCreados.CreacionObjetos(ref barcos, ref clientes, ref contenedores);
 
                         Console.WriteLine("Barcos disponibles:\n");
                         //IMPRIME LOS BARCOS
@@ -72,20 +73,35 @@ namespace TpLab2
 
                         Console.WriteLine("\nSeleccione un barco");
                         int seleccion = int.Parse(Console.ReadLine());
-                        SeleccionBarco(seleccion, ref barcos);
                         Despacho despacho1 = new Despacho(barcos[seleccion - 1], rnd.Next(9000, 18000));
 
-                        try
+                        string cliente = "";
+                        bool repeat = false;
+                        List <Cliente> listaClienteDespacho = new List<Cliente>();
+
+                        do
                         {
-                            if (ChequeoUsuario(ref despacho1) == true)
+                            try
                             {
-                                Console.WriteLine("Cliente encontrado");
+                                Console.WriteLine("Ingrese un cliente");
+                                cliente = Console.ReadLine();
+                                ChequeoUsuario(cliente, clientes, ref listaClienteDespacho);
+                                Console.WriteLine("Cliente agregado al despacho, desea seguir ingresando? (ingrese 'si')");
+                                string respuesta = Console.ReadLine();
+                                if (respuesta == "si" || respuesta == "Si" || respuesta == "SI")
+                                {
+                                    Console.Clear();
+                                    repeat = false;
+                                }
+                                else { repeat = true; }
                             }
-                        }
-                        catch (ClienteInexistenteException e)
-                        {
-                            Console.WriteLine(e.Message);
-                        }
+                            catch (ClienteInexistenteException e)
+                            {
+                                Console.WriteLine(e.Message);
+                                repeat = false;
+                            }
+                        }while(repeat == false);
+
 
                         OpcionMenuSalir = false;
                         break;
@@ -99,46 +115,26 @@ namespace TpLab2
 
             Console.ReadKey();
         }
-
-        public static bool ChequeoUsuario(ref Despacho despacho1)
+        public static bool ChequeoUsuario(string cliente, List<Cliente> clientes, ref List <Cliente> listaClienteDespacho) 
         {
-            if (File.Exists(Constantes.FileNameCSV))
+            foreach(Cliente aux in clientes)
             {
-                FileStream archivo = new FileStream(Constantes.FileNameCSV, FileMode.Open);
-                StreamReader lector = new StreamReader(archivo);
-                Console.WriteLine("Ingrese el nombre de un cliente");
-                string cliente = Console.ReadLine();
-
-                lector.ReadLine();
-                while (lector.EndOfStream == false)
+                if (cliente == aux.NombreCliente)
                 {
-                    string line = lector.ReadLine();
-                    string[] lines = line.Split(',');
-
-                    if (lines[0] == cliente)
+                    Console.WriteLine("Cliente encontrado!");
+                    listaClienteDespacho.Add(aux);
+                    if (aux.Exportacion == "Contenedor")
                     {
-                        despacho1.NombreCliente = lines[0];
-                        despacho1.Mercaderia = lines[1];
+                        Console.WriteLine($"Mercaderia del cliente: {aux.Mercaderia}\n");
 
-                        lector.Close();
-                        archivo.Close();
-                        return true;
+                    }
+                    else if (aux.Exportacion == "Bodega")
+                    {
+                        return false;
                     }
                 }
-                lector.Close();
-                archivo.Close();
-                throw new ClienteInexistenteException();
             }
-            else return false;
-        }
-
-        public static bool SeleccionBarco(int seleccion, ref List <Barco> barcos)
-        {
-            if (seleccion > 10 || seleccion < 0 || barcos[seleccion - 1].Disponibilidad != "Disponible")
-            {
-                return false;
-            }
-            else return true;
+            throw new ClienteInexistenteException();
         }
     }
 }

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TpLab2
 {
-    public abstract class Cliente
+    public class Cliente
     {
         private string _nombre;
         private string _mercaderia;
@@ -15,7 +16,7 @@ namespace TpLab2
         private string _formaExportacion;
         private int _toneladas;
 
-        /*public Cliente(string nombre, string mercaderia, string formaExportacion,int toneladas)
+        public Cliente(string nombre, string mercaderia, string formaExportacion,int toneladas, List<Contenedor> contenedores)
         {
             NombreCliente = nombre;
             Mercaderia = mercaderia;
@@ -23,7 +24,8 @@ namespace TpLab2
             _listaContainers = new List<Contenedor>();
             Exportacion = formaExportacion;
             Toneladas = toneladas;
-        }*/
+            Contenedores = contenedores;
+        }
         
         public string NombreCliente
         {
@@ -47,6 +49,12 @@ namespace TpLab2
         {
             get { return _toneladas;}
             set { _toneladas = value;}
+        }
+
+        public List<Contenedor> Contenedores
+        {
+            get { return _listaContainers; }
+            set { _listaContainers = value; }
         }
     }
 }
