@@ -16,7 +16,7 @@ namespace TpLab2
         private string _formaExportacion;
         private int _toneladas;
 
-        public Cliente(string nombre, string mercaderia, string formaExportacion,int toneladas, List<Contenedor> contenedores)
+        public Cliente(string nombre, string mercaderia, string formaExportacion,int toneladas)
         {
             NombreCliente = nombre;
             Mercaderia = mercaderia;
@@ -24,7 +24,6 @@ namespace TpLab2
             _listaContainers = new List<Contenedor>();
             Exportacion = formaExportacion;
             Toneladas = toneladas;
-            Contenedores = contenedores;
         }
         
         public string NombreCliente
@@ -51,10 +50,19 @@ namespace TpLab2
             set { _toneladas = value;}
         }
 
-        public List<Contenedor> Contenedores
+        public void AgregarContenedor(Contenedor contenedor) 
         {
-            get { return _listaContainers; }
-            set { _listaContainers = value; }
+            _listaContainers.Add(contenedor);
+        }
+
+        public void MostrarContenedores()
+        {
+            int i = 1;
+            foreach(Contenedor aux in _listaContainers)
+            {
+                Console.WriteLine($"Contenedor {i}\nLargo: {aux.Largo}\nAlto: {aux.Alto}\nAncho: {aux.Ancho}\n---------------------");
+                i++;
+            }
         }
     }
 }

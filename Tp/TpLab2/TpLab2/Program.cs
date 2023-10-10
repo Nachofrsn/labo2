@@ -62,7 +62,7 @@ namespace TpLab2
 
                         Console.WriteLine("Barcos disponibles:\n");
                         //IMPRIME LOS BARCOS
-                        for (int i = 0; i < 10; i++)
+                        for (int i = 0; i < barcos.Count; i++)
                         {
                             if (barcos[i].Disponibilidad == "Disponible")
                             {
@@ -86,11 +86,11 @@ namespace TpLab2
                                 Console.WriteLine("Ingrese un cliente");
                                 cliente = Console.ReadLine();
                                 ChequeoUsuario(cliente, clientes, ref listaClienteDespacho);
+
                                 Console.WriteLine("Cliente agregado al despacho, desea seguir ingresando? (ingrese 'si')");
                                 string respuesta = Console.ReadLine();
                                 if (respuesta == "si" || respuesta == "Si" || respuesta == "SI")
                                 {
-                                    Console.Clear();
                                     repeat = false;
                                 }
                                 else { repeat = true; }
@@ -101,7 +101,6 @@ namespace TpLab2
                                 repeat = false;
                             }
                         }while(repeat == false);
-
 
                         OpcionMenuSalir = false;
                         break;
@@ -121,12 +120,13 @@ namespace TpLab2
             {
                 if (cliente == aux.NombreCliente)
                 {
-                    Console.WriteLine("Cliente encontrado!");
+                    Console.WriteLine("\nCliente encontrado!\n");
                     listaClienteDespacho.Add(aux);
                     if (aux.Exportacion == "Contenedor")
                     {
                         Console.WriteLine($"Mercaderia del cliente: {aux.Mercaderia}\n");
-
+                        aux.MostrarContenedores();
+                        return true;
                     }
                     else if (aux.Exportacion == "Bodega")
                     {

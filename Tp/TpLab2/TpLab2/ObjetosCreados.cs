@@ -15,22 +15,13 @@ namespace TpLab2
             Barco C = new Barco(60, 12, 15, "Seoul", "15 / 5 / 23", "8 / 6 /23");
             Barco D = new Barco(50, 10, 15, "Amsterdam", "15 / 5 / 23", "9 / 6 /23");
             Barco E = new Barco(50, 10, 15, "Madrid", "15 / 5 / 23", "7 / 6 /23");
-            Barco F = new Barco(50, 10, 15, "Beijing", "15 / 5 / 23", "9 / 6 /23");
-            Barco G = new Barco(50, 10, 15, "Madrid", "15 / 5 / 23", "7 / 6 /23");
-            Barco H = new Barco(50, 10, 15, "Amsterdam", "15 / 5 / 23", "8 / 6 /23");
-            Barco I = new Barco(50, 10, 15, "Tokyo", "15 / 5 / 23", "7 / 6 /23");
-            Barco J = new Barco(50, 10, 15, "Seoul", "15 / 5 / 23", "9 / 6 /23");
 
             barcos.Add(A);
             barcos.Add(B);
             barcos.Add(C);
             barcos.Add(D);
             barcos.Add(E);
-            barcos.Add(F);
-            barcos.Add(G);
-            barcos.Add(H);
-            barcos.Add(I);
-            barcos.Add(J);
+            
 
             Contenedor contenedor1 = new Contenedor(20, 20, 30);
             Contenedor contenedor2 = new Contenedor(10, 10, 20);
@@ -51,27 +42,29 @@ namespace TpLab2
             contenedores.Add(contenedor8);
 
             //PREGUNTAR SI CADA CLIENTE NECESITA UNA LISTA DE CONTENEDORES (EL EJERCICIO DICE QUE EL CLIENTE PUEDE TENER MAS DE UN CONTENEDOR)
-            Cliente Pedro = new Cliente("Camila","Juguetes","Contenedor",5);
             Cliente Marcos = new Cliente("Marcos","Peluches","Bodega",7);
-            Cliente Ignacio = new Cliente("Ignacio","Celulares","Contenedor",10);
-            Cliente Ezequiel = new Cliente("Ezequiel","Tablet","Contenedor",2);
-            Cliente Esteban = new Cliente("Franco","Ropa","Bodega", 7);
-            Cliente Sofia = new Cliente("Sofia", "Monitor", "Contenedor", 2);
-            Cliente Agustina = new Cliente("Agustina", "Notebook", "Contenedor", 4);    
-            Cliente Pilar = new Cliente("Pilar", "Auriculares", "Bodega", 1);
-            Cliente Camila = new Cliente("Camila", "Televisores", "Bodega", 9);
-            Cliente Magali = new Cliente("Magali", "Cuadros", "Contenedor", 15);
+            Marcos.AgregarContenedor(contenedor1);
+            Marcos.AgregarContenedor(contenedor2);
 
-            clientes.Add(Pedro);
+            Cliente Ignacio = new Cliente("Ignacio","Celulares","Contenedor",10);
+            Ignacio.AgregarContenedor(contenedor3);
+
+            Cliente Ezequiel = new Cliente("Ezequiel","Tablet","Contenedor",2);
+            Ezequiel.AgregarContenedor(contenedor4);
+            Ezequiel.AgregarContenedor(contenedor5);
+
+            Cliente Sofia = new Cliente("Sofia", "Monitor", "Contenedor", 2);
+            Sofia.AgregarContenedor(contenedor6);
+
+            Cliente Agustina = new Cliente("Agustina", "Notebook", "Contenedor", 4);
+            Agustina.AgregarContenedor(contenedor7);
+            Agustina.AgregarContenedor(contenedor8);
+
             clientes.Add(Marcos);
             clientes.Add(Ignacio);
             clientes.Add(Ezequiel);
-            clientes.Add(Esteban);
             clientes.Add(Sofia);
             clientes.Add(Agustina);
-            clientes.Add(Pilar);
-            clientes.Add(Camila);
-            clientes.Add(Magali);
         }
     }
 }
