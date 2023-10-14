@@ -11,19 +11,24 @@ namespace TpLab2
     {
         private Barco _barco;
         private Int32 _numDespacho;
-        private List <Cliente> _clientes;
-
+        private Cliente _cliente;
         public Despacho(Barco barco, int codigo)
         {
             Barco = barco;
             NumeroDespacho = codigo;
-            _clientes = new List <Cliente>();
+            _cliente = new Cliente();
         }
 
         public Barco Barco
         {
             get { return _barco; }
             set { _barco = value; }
+        }
+
+        public Cliente Cliente
+        {
+            get { return _cliente; }
+            set { _cliente = value; }
         }
 
         public Int32 NumeroDespacho

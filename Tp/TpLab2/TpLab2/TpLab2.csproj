@@ -50,6 +50,7 @@
     <Compile Include="Constantes.cs" />
     <Compile Include="Contenedor.cs" />
     <Compile Include="Despacho.cs" />
+    <Compile Include="ManejoArchivos.cs" />
     <Compile Include="ObjetosCreados.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

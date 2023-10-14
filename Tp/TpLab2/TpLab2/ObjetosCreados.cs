@@ -10,11 +10,11 @@ namespace TpLab2
     {
         public static void CreacionObjetos(ref List<Barco> barcos, ref List<Cliente> clientes, ref List<Contenedor> contenedores)
         {
-            Barco A = new Barco(50, 10, 15, "Beijing", "15 / 5 / 23", "7 / 6 / 06");
-            Barco B = new Barco(40, 8, 10, "Tokyo", "15 / 5 / 23", "9 / 6 / 23");
-            Barco C = new Barco(60, 12, 15, "Seoul", "15 / 5 / 23", "8 / 6 /23");
-            Barco D = new Barco(50, 10, 15, "Amsterdam", "15 / 5 / 23", "9 / 6 /23");
-            Barco E = new Barco(50, 10, 15, "Madrid", "15 / 5 / 23", "7 / 6 /23");
+            Barco A = new Barco();
+            Barco B = new Barco();
+            Barco C = new Barco();
+            Barco D = new Barco();
+            Barco E = new Barco();
 
             barcos.Add(A);
             barcos.Add(B);
@@ -42,29 +42,24 @@ namespace TpLab2
             contenedores.Add(contenedor8);
 
             //PREGUNTAR SI CADA CLIENTE NECESITA UNA LISTA DE CONTENEDORES (EL EJERCICIO DICE QUE EL CLIENTE PUEDE TENER MAS DE UN CONTENEDOR)
-            Cliente Marcos = new Cliente("Marcos","Peluches","Bodega",7);
-            Marcos.AgregarContenedor(contenedor1);
-            Marcos.AgregarContenedor(contenedor2);
+            Cliente Maximo = new Cliente();
+            Maximo.AgregarContenedor(contenedor1);
+            Maximo.AgregarContenedor(contenedor2);
 
-            Cliente Ignacio = new Cliente("Ignacio","Celulares","Contenedor",10);
+            Cliente Ignacio = new Cliente();
             Ignacio.AgregarContenedor(contenedor3);
 
-            Cliente Ezequiel = new Cliente("Ezequiel","Tablet","Contenedor",2);
-            Ezequiel.AgregarContenedor(contenedor4);
-            Ezequiel.AgregarContenedor(contenedor5);
+            Cliente Julia = new Cliente();
+            Julia.AgregarContenedor(contenedor4);
+            Julia.AgregarContenedor(contenedor5);
 
-            Cliente Sofia = new Cliente("Sofia", "Monitor", "Contenedor", 2);
-            Sofia.AgregarContenedor(contenedor6);
+            Cliente Lazaro = new Cliente();
+            Lazaro.AgregarContenedor(contenedor6);
 
-            Cliente Agustina = new Cliente("Agustina", "Notebook", "Contenedor", 4);
-            Agustina.AgregarContenedor(contenedor7);
-            Agustina.AgregarContenedor(contenedor8);
-
-            clientes.Add(Marcos);
             clientes.Add(Ignacio);
-            clientes.Add(Ezequiel);
-            clientes.Add(Sofia);
-            clientes.Add(Agustina);
+            clientes.Add(Julia);
+            clientes.Add(Maximo);
+            clientes.Add(Lazaro);
         }
     }
 }

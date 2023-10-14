@@ -19,16 +19,18 @@ namespace TpLab2
         private string _fechaLlegada;
         private List<Barco> _barcoList;
         private string _disponibilidad;
-        public Barco(int tonBodega, int tonContainer, int cantContainers, string destino, string fechaSalida, string fechaLlegada)
+        private string _formaExportacion;
+        public Barco()
         {
-            TonBodega = tonBodega;
-            TonContainer = tonContainer;
-            CantidadContainers = cantContainers;
-            Destino = destino;
-            HorarioSalida = fechaSalida;
-            HorarioLlegada = fechaLlegada;
-            _barcoList = new List<Barco>();
+            TonBodega = 0;
+            TonContainer = 0;
+            CantidadContainers = 0;
+            Destino = "";
+            HorarioSalida = "";
+            HorarioLlegada = "";
             Disponibilidad = "Disponible";
+            _barcoList = new List<Barco>();
+            FormaExportacion = "";
         }
         public int TonBodega
         {
@@ -64,15 +66,17 @@ namespace TpLab2
         {
             get { return "Buenos Aires"; }
         }
-        public int Tarifa
-        {
-            get { return 2000; }
-        }
 
         public string Disponibilidad
         {
             get { return _disponibilidad; }
             set { _disponibilidad = value; }
+        }
+
+        public string FormaExportacion
+        {
+            get { return _formaExportacion; }
+            set { _formaExportacion = value; }
         }
     }
 }

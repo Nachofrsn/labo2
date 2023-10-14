@@ -11,27 +11,39 @@ namespace TpLab2
     {
         private string _nombre;
         private string _mercaderia;
+        private string _descripcionMercaderia;
         private List<Cliente> _listaClientes;
         private List<Contenedor> _listaContainers;
         private string _formaExportacion;
         private int _toneladas;
+        private string _codigoCliente;
 
-        public Cliente(string nombre, string mercaderia, string formaExportacion,int toneladas)
+        public Cliente()
         {
-            NombreCliente = nombre;
-            Mercaderia = mercaderia;
+            NombreCliente = "";
+            Mercaderia = "";
+            DescripcionMercaderia = "";
             _listaClientes = new List<Cliente>();
             _listaContainers = new List<Contenedor>();
-            Exportacion = formaExportacion;
-            Toneladas = toneladas;
+            Exportacion = "";
+            Toneladas = 0;
         }
         
+        public string CodigoCliente
+        {
+            get { return _codigoCliente; }
+            set { _codigoCliente = value;}
+        }
         public string NombreCliente
         {
             get { return _nombre; }
             set { _nombre = value; }
         }
-
+        public string DescripcionMercaderia
+        {
+            get { return _descripcionMercaderia;}
+            set { _descripcionMercaderia = value; }
+        }
         public string Mercaderia
         {
             get { return _mercaderia; }
