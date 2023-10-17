@@ -44,17 +44,23 @@ namespace TpLab2
             //PREGUNTAR SI CADA CLIENTE NECESITA UNA LISTA DE CONTENEDORES (EL EJERCICIO DICE QUE EL CLIENTE PUEDE TENER MAS DE UN CONTENEDOR)
             Cliente Maximo = new Cliente();
             Maximo.AgregarContenedor(contenedor1);
+            contenedor1.Numeracion = 1;
             Maximo.AgregarContenedor(contenedor2);
+            contenedor2.Numeracion = 2;
 
             Cliente Ignacio = new Cliente();
             Ignacio.AgregarContenedor(contenedor3);
+            contenedor3.Numeracion = 1;
 
             Cliente Julia = new Cliente();
             Julia.AgregarContenedor(contenedor4);
+            contenedor4.Numeracion = 1;
             Julia.AgregarContenedor(contenedor5);
+            contenedor5.Numeracion = 2;
 
             Cliente Lazaro = new Cliente();
             Lazaro.AgregarContenedor(contenedor6);
+            contenedor6.Numeracion = 1;
 
             clientes.Add(Ignacio);
             clientes.Add(Julia);

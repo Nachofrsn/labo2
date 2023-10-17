@@ -72,7 +72,27 @@ namespace TpLab2
             int i = 1;
             foreach(Contenedor aux in _listaContainers)
             {
-                Console.WriteLine($"Contenedor {i}\nLargo: {aux.Largo}\nAlto: {aux.Alto}\nAncho: {aux.Ancho}\n---------------------");
+                if (aux.Seleccion != "seleccionado")
+                {
+                    Console.WriteLine($"Contenedor {i}\nLargo: {aux.Largo}\nAlto: {aux.Alto}\nAncho: {aux.Ancho}\n---------------------");
+                }
+                i++;
+            }
+        }
+
+        public void ListarContenedor(int seleccion)
+        {
+            int i = 1;
+            foreach(Contenedor aux in _listaContainers)
+            {
+                if (aux.Numeracion == seleccion)
+                {
+                    aux.Seleccion = "seleccionado";
+                }
+                if (aux.Seleccion == "seleccionado")
+                {
+                    Console.WriteLine($"\nMedidas del contenedor {i}:\n\nLargo: {aux.Largo}\nAlto: {aux.Alto}\nAncho: {aux.Ancho}");
+                }
                 i++;
             }
         }

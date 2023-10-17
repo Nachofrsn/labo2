@@ -11,15 +11,28 @@ namespace TpLab2
         private int _alto;
         private int _ancho;
         private int _largo;
-
-
+        private int _numeracion;
+        public string _seleccion;
         public Contenedor(int largo, int ancho, int alto)
         {
             Largo = largo;
             Ancho = ancho;
             Alto = alto;
+            Numeracion = 0;
+            Seleccion = "";
         }
 
+        public string Seleccion
+        {
+            get { return _seleccion; }
+            set { _seleccion = value; }
+        }
+
+        public int Numeracion
+        {
+            get { return _numeracion; }
+            set { _numeracion = value; }
+        }
 
         public int TarifaContenedor
         {
@@ -42,11 +55,6 @@ namespace TpLab2
         {
             get { return _alto; }
             set { _alto = value; }
-        }
-
-        public int MedidaContainer
-        {
-            get { return Alto * Ancho * Largo; }
         }
     }
 }

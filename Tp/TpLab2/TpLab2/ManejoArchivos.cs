@@ -59,6 +59,7 @@ namespace TpLab2
                     clientes[i].NombreCliente = lines[1];
                     Console.WriteLine("Ingrese mercaderia a despachar"); string mercaderia = Console.ReadLine(); clientes[i].Mercaderia = mercaderia;
                     Console.WriteLine("Ingrese descripcion de la mercaderia"); string descMercaderia = Console.ReadLine(); clientes[i].DescripcionMercaderia = descMercaderia;
+                    
                     Console.WriteLine("Ingrese forma de exportacion (Contenedor o Bodega)"); string exportacion = Console.ReadLine(); clientes[i].Exportacion = exportacion;
                     lector.Close();
                     archivo.Close();
